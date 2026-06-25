@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed & Aya - Wedding Invitation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== الإعدادات الأساسية ===== */
+        :root {
+            --main-color: #0c4d43; /* اللون الأخضر الغامق للنصوص */
+            --bg-color: #f8fbf9; /* لون الخلفية الفاتح جداً */
+            --accent-color: #d4af37; /* لون ذهبي ناعم للتفاصيل */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--main-color);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            background-size: cover;
+            background-attachment: fixed;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        section {
+            padding: 80px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* ===== القسم الأول: البطل (Hero Section) ===== */
+        .hero-section {
+            padding-top: 100px;
+        }
+        .hero-box {
+            border: 2px solid var(--main-color);
+            padding: 60px 40px;
+            background: rgba(255, 255, 255, 0.85); /* خلفية شفافة مدعومة بـ Blur */
+            backdrop-filter: blur(5px);
+            box-shadow: 0 20px 40px rgba(12, 77, 67, 0.05);
+            position: relative;
+        }
+        /* إضافة لمسة جمالية في زوايا المربع الداخلي */
+        .hero-box::before {
+            content: '';
+            position: absolute;
+            top: 10px; left: 10px; right: 10px; bottom: 10px;
+            border: 1px solid rgba(12, 77, 67, 0.2);
+            pointer-events: none;
+        }
+        .hero-box h1 {
+            font-size: 4rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        .hero-box h1 span {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--accent-color); /* تم تمييز حرف الـ & بالذهبي */
+            display: block;
+            font-size: 2.5rem;
+            margin: 10px 0;
+        }
+        .hero-box p {
+            font-weight: 600;
+            letter-spacing: 2px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        /* ===== القسم الثاني: صورة العروسين ===== */
+        .photo-section {
+            padding-top: 0;
+            padding-bottom: 40px;
+        }
+        .couple-photo {
+            width: 100%;
+            max-width: 750px;
+            margin: 0 auto;
+            border-radius: 4px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        .couple-photo:hover {
+            transform: scale(1.01);
+        }
+
+        /* ===== القسم الثالث: تفاصيل الموعد (Save the date) ===== */
+        .save-date h2 {
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+            font-style: italic;
+            font-weight: 400;
+        }
+        .details-grid {
+            display: flex;
+            justify-content: center;
+            gap: 100px;
+            flex-wrap: wrap;
+        }
+        .detail-item {
+            flex: 1;
+            min-width: 250px;
+        }
+        .detail-item h3 {
+            font-size: 1.6rem;
+            color: var(--main-color);
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .detail-item h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 1px;
+            background-color: var(--accent-color);
+        }
+        .detail-item p {
+            font-weight: 400;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-top: 15px;
+        }
+
+        /* ===== القسم الرابع: فقرات هي و هو (She & He) ===== */
+        .quotes-container {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            max-width: 700px;
+            margin: 40px auto 0 auto;
+        }
+        .quote-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--main-color);
+            font-style: italic;
+        }
+        .quote-box p {
+            line-height: 1.9;
+            font-size: 1.05rem;
+            color: #4a5553;
+            font-style: italic;
+        }
+        .quote-she {
+            text-align: left;
+            border-left: 2px solid var(--accent-color);
+            padding-left: 20px;
+        }
+        .quote-he {
+            text-align: right;
+            border-right: 2px solid var(--accent-color);
+            padding-right: 20px;
+        }
+
+        /* ===== القسم الخامس: العداد التنازلي ===== */
+        .together-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .together-section p {
+            line-height: 1.9;
+            margin-bottom: 50px;
+            color: #4a5553;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        .time-box {
+            background-color: #fff;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 4px;
+            box-shadow: 0 10px 25px rgba(12, 77, 67, 0.05);
+            border: 1px solid rgba(12, 77, 67, 0.05);
+        }
+        .time-box .num {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--main-color);
+        }
+        .time-box .label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 5px;
+            color: #7a8a87;
+            letter-spacing: 1px;
+        }
+
+        /* ===== الفوتر ===== */
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(12, 77, 67, 0.05);
+            color: #7a8a87;
+        }
+
+        /* استجابة الشاشات الصغيرة (الموبايل) */
+        @media (max-width: 600px) {
+            section { padding: 50px 20px; }
+            .hero-section { padding-top: 60px; }
+            .hero-box { padding: 40px 20px; }
+            .hero-box h1 { font-size: 2.8rem; }
+            .save-date h2 { font-size: 2.2rem; }
+            .details-grid { gap: 40px; flex-direction: column; }
+            .countdown { gap: 15px; }
+            .time-box { width: 75px; height: 75px; }
+            .time-box .num { font-size: 1.6rem; }
+            .quote-she, .quote-he { padding: 0 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero-section">
+        <div class="hero-box">
+            <h1>Ahmed<span>&</span>Aya</h1>
+            <p>July 23, 2026</p>
+        </div>
+    </section>
+
+    <section class="photo-section">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop" alt="Ahmed and Aya" class="couple-photo">
+    </section>
+
+    <section class="save-date">
+        <h2>Save the date</h2>
+        <div class="details-grid">
+            <div class="detail-item">
+                <h3>Date & Time</h3>
+                <p>July 23, 2026<br>4:00 - 11:00 PM</p>
+            </div>
+            <div class="detail-item">
+                <h3>Venue</h3>
+                <p>Natural Garden<br>5:30 - 11:00 PM</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="quotes-container">
+            <div class="quote-box quote-she">
+                <h3>She - ♡ -</h3>
+                <p>"It's like a cosmic energy that connects two people in ways that transcend time and space. When I'm with Ahmed, I feel like I'm part of something greater than myself. It's like our love is a living, breathing entity that moves and flows, changing and growing with each passing moment."</p>
+            </div>
+            <div class="quote-box quote-he">
+                <h3>He - ♡ -</h3>
+                <p>"It's like a fire that burns within my soul, and she's the only one who can extinguish it. Aya is my anchor in a stormy sea, the one who makes everything in my life feel worthwhile. Our love is a journey that I'm excited to embark upon, hand in hand with her."</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="together-section">
+        <h2>Together is our favorite place to be</h2>
+        <p>Our love is a bond that has grown stronger with each passing day, and we are excited to embark on this new journey together as husband and wife. Through the ups and downs, we know that our love will remain steadfast, and we can't wait to spend the rest of our lives cherishing each other. It would be an honor to have you join us as we exchange our vows and embark on this next chapter of our lives.</p>
+        
+        <div class="countdown">
+            <div class="time-box">
+                <span class="num" id="days">00</span>
+                <span class="label">DAYS</span>
+            </div>
+            <div class="time-box">
+                <span class="num" id="hours">00</span>
+                <span class="label">HOURS</span>
+            </div>
+            <div class="time-box">
+                <span class="num" id="minutes">00</span>
+                <span class="label">MINS</span>
+            </div>
+            <div class="time-box">
+                <span class="num" id="seconds">00</span>
+                <span class="label">SECS</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        Made With Love By | Mahmoud Esmat 2026&copy; 
+    </footer>
+
+    <script>
+        // تحديد تاريخ الزفاف
+        const countdownDate = new Date("Jul 23, 2026 16:00:00").getTime();
+
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            // حساب الوقت بالأيام، الساعات، الدقائق، والثواني
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // ربط الحسابات بعناصر الـ HTML لعرضها على الشاشة (هذا الجزء كان ناقصاً عندك)
+            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+            // في حال انتهاء العداد التنازلي
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("days").innerHTML = "00";
+                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("minutes").innerHTML = "00";
+                document.getElementById("seconds").innerHTML = "00";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
